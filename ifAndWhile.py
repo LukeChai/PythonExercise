@@ -1,4 +1,4 @@
-﻿#!C:/Python32  
+﻿#!/usr/bin/python  
 # -*- coding: utf-8 -*-  
 # Filename ifAndWhile.py  
 # 猜数字游戏，演示if和while的用法  
