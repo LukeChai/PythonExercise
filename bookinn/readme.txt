@@ -1,0 +1,4 @@
+
+webpy
+mysql-python
+simplejson
