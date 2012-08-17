@@ -5,15 +5,20 @@
 	padding: 0;
 	font-size: 10pt;
 	font-family: Calibri, Verdana, Arial, Scans-serif;
+	color: #68696D;
+}
+html, body{
+	width: 100%;
+	height: 100%;
 }
 a{
 	text-decoration: none;
-	color: #000;
+	color: #68696D;
 }
 input, button, select, textarea{
 	outline:none
 }
-input{
+input, button{
 	border: none;
 	width: 100px;
 	height: 20px;
@@ -22,13 +27,30 @@ input{
 .color_gray{
 	color: #CCC;
 }
+.highlight{
+	border: 1px solid #73aeb6;
+}
 .hide{
 	display: none;
 }
 .show{
 	display: block;
 }
+.visible{
+	visibility: visible;
+}
+.invisible{
+	visibility: hidden;
+}
 
+#masklayer{
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+}
 #wraper{
 	width: 960px;
 	margin-right: auto;
@@ -77,6 +99,111 @@ input{
 
 #body_left{
 	width: 650px;
-	height: 200px;
-	background-color: #F1F1F1;
+}
+#body_left_header{
+	height: 50px;
+}
+.ainn{
+	border: 1px solid #73AEB6;
+	border-bottom-width: 5px;
+}
+.ainn_banner{
+	position: relative;
+	line-height: 35px;
+	border-bottom: solid 1px #F1EBDD;
+	padding-left: 10px;
+	margin: 10px 1px 0 1px;
+}
+.ainn_banner p{
+	font-size: 15pt;
+}
+.inn_config {
+	position: absolute;
+	top: 0;
+	right: 20px;
+	line-height: 35px;
+}
+.ainn_rooms{
+	margin: 0 0 10px 10px;
+	padding-top: 15px;
+}
+.ainn_room td.ainn_room_remain input{
+	width: 30px;
+	height: 20px;
+	text-align: center;
+}
+.ainn_room table{
+	width: 100%;
+}
+.ainn_room table tr td{
+	height: 30px;
+	line-height: 20px;
+}
+.ainn_room table tr td button{
+	width: 25px;
+	border: solid 1px #CCC;
+}
+.ainn_room .ainn_room_name{
+	width: 65%;
+}
+.ainn_room .ainn_room_remain{
+	width: 15%;
+}
+.ainn_room .ainn_room_updatedtime{
+	text-align: center;
+	width: 20%;
+}
+.ainn_room .ainn_room_action{
+	text-align: center;
+	width: 20%;
+}
+
+#dialog_inn_config{
+	position: absolute;
+	width: 700px;
+	background: url(../images/inn_config_bg_h.png) repeat-y top left;
+}
+#dialog_inn_config div.ainn{
+	width: 650px;
+	min-height: 400px;
+	margin-left: 25px;	
+}
+#config_header{
+	width: 100%;
+	height: 20px;
+	background: url(../images/inn_config_bg_vh.png) no-repeat top left;
+	margin-top: -20px;
+}
+#config_inn_body{
+	position: relative;
+	min-height: 400px;
+}
+#config_footer{
+	width: 100%;
+	height: 20px;
+	background: url(../images/inn_config_bg_vf.png) no-repeat top left;
+	margin-bottom: -20px;
+}
+#config_close{
+	position: absolute;
+	top: -10px;
+	right: 0px;
+	width: 48px;
+	height: 48px;
+	background: url(../images/inn_config_close.png) no-repeat top left;
+	cursor: pointer;
+}
+#config_innname input{
+	width: 575px;
+	height: 35px;
+	font-size: 18px;
+}
+#config_inn_body div.ainn_rooms input{
+	width: 100%
+}
+#config_inn_save{
+	position: absolute;
+	left: 275px;
+	bottom: 10px;
+	border: 1px solid #73aeb6;
 }

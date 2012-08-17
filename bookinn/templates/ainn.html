@@ -1,0 +1,35 @@
+$def with (inn)
+<div id="config_header"></div>
+<div id="config_inn_body" class="ainn">
+    <div class="ainn_banner">
+        <div id="config_innname">
+        	<input type="text" name="config_inn_name_$inn.id" value="$inn.innname" />
+        </div>
+        <div id="config_close">
+        </div>
+    </div>
+    <div class="ainn_rooms">
+        $for room in inn.rooms:
+            <div id="config_$room.id" class="ainn_room">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="ainn_room_name" nowrap="nowrap">
+                            	<input type="text" name="config_room_name_$room.id" value="$room.roomname" />
+                            </td>
+                            <td class="ainn_room_remain" nowrap="nowrap">
+                                <input type="text" name="config_room_remain_$room.id" value="$room.remain" />
+                            </td>
+                            <td class="ainn_room_action" nowrap="nowrap">
+                                <span>$room.updatedtime</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+    </div>
+    <div id="config_inn_action">
+    	<button type="button" id="config_inn_save">保存</button>
+    </div>
+</div>
+<div id="config_footer"></div>
