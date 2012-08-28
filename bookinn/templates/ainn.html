@@ -1,11 +1,36 @@
 $def with (inn)
-<div id="config_header"></div>
+<div id="config_header">
+	<div class="config_innid hide">$inn.id</div>
+</div>
 <div id="config_inn_body" class="ainn">
     <div class="ainn_banner">
         <div id="config_innname">
-        	<input type="text" name="config_inn_name_$inn.id" value="$inn.innname" />
+        	<input type="text" name="config_inn_name" id="config_inn_name" value="$inn.innname" />
         </div>
         <div id="config_close">
+        </div>
+    </div>
+    <div class="config_inn_action">
+    	<div id="config_inn_newbutton">
+        	<span>新增一条</span>
+        </div>
+        <div id="config_inn_newline">
+        	<table>
+            	<tbody>
+                	<tr>
+                    	<td class="ainn_room_name" nowrap="nowrap">
+                        	<input type="text" name="config_room_name" value="请输入房间名称" />
+                        </td>
+                        <td class="ainn_room_remain" nowrap="nowrap">
+                        	<input type="text" name="config_room_remain" value="0" />
+                        </td>
+                        <td class="ainn_room_action" nowrap="nowrap">
+                        	<button type="button" id="config_inn_continue">继续添加</button>
+                            <button type="button" id="config_inn_done">完成</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
     <div class="ainn_rooms">
@@ -14,22 +39,51 @@ $def with (inn)
                 <table>
                     <tbody>
                         <tr>
+                            <td class="ainn_room_action" nowrap="nowrap">
+                            	<div class="ainn_room_action_mv invisible">
+                                	<div class="config_inn_moveup"></div>
+                                    <div class="config_inn_movedown"></div>
+                                </div>
+                                <input type="hidden" name="config_room_orderno_$room.id" value="$room.orderno" />
+                            </td>
                             <td class="ainn_room_name" nowrap="nowrap">
                             	<input type="text" name="config_room_name_$room.id" value="$room.roomname" />
                             </td>
                             <td class="ainn_room_remain" nowrap="nowrap">
                                 <input type="text" name="config_room_remain_$room.id" value="$room.remain" />
                             </td>
-                            <td class="ainn_room_action" nowrap="nowrap">
-                                <span>$room.updatedtime</span>
+                            <td class="ainn_room_remove" nowrap="nowrap">
+                            	<div class="config_inn_remove invisible"></div>
                             </td>
                         </tr>
                     </tbody>
                 </table>
             </div>
     </div>
-    <div id="config_inn_action">
-    	<button type="button" id="config_inn_save">保存</button>
+    <div class="config_inn_save">
+        <button type="button" id="config_inn_save">保存</button>
     </div>
 </div>
-<div id="config_footer"></div>
+<div id="config_footer">
+    <div id="config_inn_mode" class="ainn_room hide">
+        <table>
+            <tbody>
+                <tr>
+                    <td class="ainn_room_action" nowrap="nowrap">
+                        <div class="ainn_room_action_mv invisible">
+                            <div class="config_inn_moveup"></div>
+                            <div class="config_inn_movedown"></div>
+                        </div>
+                    </td>
+                    <td class="ainn_room_name" nowrap="nowrap">
+                    </td>
+                    <td class="ainn_room_remain" nowrap="nowrap">
+                    </td>
+                    <td class="ainn_room_remove" nowrap="nowrap">
+                        <div class="config_inn_remove invisible"></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

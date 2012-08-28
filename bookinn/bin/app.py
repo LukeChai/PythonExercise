@@ -74,6 +74,8 @@ class Inn(object):
             return self.get_inn_summary()
         elif func == 'update_remain_room':
             return self.update_remain_room()
+        elif func == 'save_inn_config':
+            return self.save_inn_config()
         else:
             print 'not found!'
     
@@ -95,7 +97,32 @@ class Inn(object):
             db.master.update('room', vars=cond, where='id = $roomid', remain=int(form.remain), updatedtime=now_time)
             return simplejson.dumps({'code': 0, 'updatedtime': now_time})
         except:
-            return simplejson.dumps({'code': 1})        
+            return simplejson.dumps({'code': 1})
+
+    def save_inn_config(self):
+        try:
+            form = web.input()
+            insertData, updateData, deleteData = form.insertData, form.updateData, form.deleteData
+            now_time = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+            if len(insertData) != 0:
+                lineDatas = insertData.split(';')
+                for lineData in lineDatas:
+                    columnDatas = lineData.split('|')
+                    db.master.insert('room', innid=int(form.innid), roomname=columnDatas[0], remain=int(columnDatas[1]), orderno=columnDatas[2], updatedtime=now_time)
+            if len(updateData) != 0:                         
+                lineDatas = updateData.split(';')
+                for lineData in lineDatas:
+                    columnDatas = lineData.split('|')
+                    cond = dict(roomid=int(columnDatas[0]))
+                    db.master.update('room', vars=cond, where='id = $roomid', roomname=columnDatas[1], remain=int(columnDatas[2]), orderno=columnDatas[3], updatedtime=now_time)
+            if len(deleteData) != 0:
+                lineDatas = deleteData.split(';')
+                for lineData in lineDatas:
+                    cond = dict(roomid=int(lineData))
+                    db.master.delete('room', vars=cond, where='id = $roomid')
+            return simplejson.dumps({'code': 0})
+        except:
+            return simplejson.dumps({'code': 1})
 
 def notfound():
     return web.notfound("Sorry, the page you were looking for was not found.")
