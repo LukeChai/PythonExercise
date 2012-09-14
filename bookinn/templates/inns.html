@@ -1,16 +1,27 @@
-$def with (inns)
+$def with (inns, session)
 
 $for inn in inns:
     <div id="$inn.id" class="ainn">
         <div class="ainn_banner">
         	<div>
-        		<p>$inn.innname</p>
+        		<p class="f15">$inn.innname</p>
+                <p class="f10 lh20">$inn.location</p>
             </div>
             <div class="inn_config invisible">
             	<span><a href="/inn/config_inn?id=$inn.id">配置</a></span>
             </div>
         </div>
         <div class="ainn_rooms">
+        $if len(inn.rooms) == 0:
+        	$if session.admin:
+                <div class="inn_config_after_new">
+                    <span>暫無配置房間</span>
+                </div>
+            $else:
+                <div class="inn_config_after_new">
+                    <span><a href="/inn/config_inn?id=$inn.id">+ 配置房間</a></span>
+                </div>
+        $else:
         	$for room in inn.rooms:
                 <div id="$room.id" class="ainn_room">
                 	<table>
@@ -33,3 +44,4 @@ $for inn in inns:
                 </div>
         </div>
     </div>
+    <div class="ainn_gap"></div>

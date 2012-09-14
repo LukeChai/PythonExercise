@@ -42,6 +42,15 @@ input, button{
 .invisible{
 	visibility: hidden;
 }
+.f10{
+	font-size: 10pt;
+}
+.f15{
+	font-size: 15pt;
+}
+.lh20{
+	line-height: 20px;
+}
 
 #masklayer{
 	position: absolute;
@@ -60,6 +69,7 @@ input, button{
 	position: relative;
 	height: 40px;
 	background-color: #F1F1F1;
+	border-bottom: 5px solid #828282;
 }
 #header_right{
 	float: right;
@@ -73,7 +83,6 @@ input, button{
 	right: 0px;
 	width: 310px;
 	height: 30px;
-	margin-right: 10px;
 	background-color: #E16B8C;
 	text-align: center;
 	line-height: 30px;
@@ -96,32 +105,106 @@ input, button{
 	width: 90px;
 	margin-left: 200px;
 }
+#body_register{
+	width: 310px;
+	min-height: 140px;
+	float: right;
+	background-color: #CCC;
+	padding-top: 5px;
+}
+#body_register > div{
+	width: 100%;
+	line-height: 130px;
+	text-align: center;
+}
+#body_register table{
+	width: 100%;
+}
+#body_register table td{
+	text-align: center;
+}
+#body_register table input{
+	width: 305px;
+}
+#body_register div.reg_field_msg{
+	line-height: 20px;
+	background-color: #F75C2F;
+	color: white;
+	width: 305px;
+	margin-left: 1px;
+}
 
 #body_left{
+	float: left;
 	width: 650px;
 }
 #body_left_header{
+	margin: 1px 0;
+	border: 1px solid #FBE251;
+}
+#new_ainn_button{
+	text-align: center;
+	cursor: default;	
+}
+#new_ainn_button, #new_ainn_body{
+	width: 100%;
 	height: 50px;
+	background-color: #FBE251;
+	line-height: 50px;
+}
+#search_inns_area {
+	width: 100%;
+	height: 50px;
+	background-color: #FBE251;
+	line-height: 20px;
+}
+#search_inns_area table th{
+	text-align: center;
+	font-weight: normal;
+}
+#new_inn_name, #search_inn_name{
+	width: 260px;
+	margin-right: 1px;
+}
+#new_inn_location, #search_inn_location{
+	width: 380px;
+}
+#new_ainn_action, #search_inn_action{
+	text-align: center;
+	line-height: 30px;
+}
+#new_ainn_action button, #search_inn_action button{
+	border: 1px solid #FBE251;
 }
 .ainn{
 	border: 1px solid #73AEB6;
 	border-bottom-width: 5px;
+}
+.ainn_gap {
+	width: 100%;
+	height: 5px;
 }
 .ainn_banner{
 	position: relative;
 	line-height: 35px;
 	border-bottom: solid 1px #F1EBDD;
 	padding-left: 10px;
-	margin: 10px 1px 0 1px;
-}
-.ainn_banner p{
-	font-size: 15pt;
+	padding-bottom: 2px;
+	margin: 5px 1px 0 1px;
 }
 .inn_config {
 	position: absolute;
 	top: 0;
 	right: 20px;
 	line-height: 35px;
+}
+.inn_config_after_new span{	
+	line-height: 30px;
+	height: 30px;
+	display: block;
+	width: 80px;
+	text-align: center;
+	margin-left: 265px;
 }
 .ainn_rooms{
 	margin: 0 0 10px 10px;
@@ -167,6 +250,14 @@ input, button{
 	width: 650px;
 	min-height: 400px;
 	margin-left: 25px;	
+}
+#config_inn_layout {
+	position: absolute;
+	top: 0;
+	left: 25px;
+	width: 650px;
+	min-height: 400px;
+	z-index: 8;
 }
 #config_header{
 	width: 100%;
@@ -245,6 +336,7 @@ input, button{
 #config_inn_body{
 	position: relative;
 	min-height: 400px;
+	z-index: 6;
 }
 #config_footer{
 	width: 100%;
@@ -254,7 +346,7 @@ input, button{
 }
 #config_close{
 	position: absolute;
-	top: -10px;
+	top: -6px;
 	right: 0px;
 	width: 48px;
 	height: 48px;
@@ -274,4 +366,22 @@ input, button{
 	left: 275px;
 	bottom: 10px;
 	border: 1px solid #73aeb6;
+}
+
+#body_right{
+	float: right;
+	width: 300px;
+}
+#body_right div.msg_block{
+	height: 30px;
+	margin-top: 1px;
+	background-color: #7BA23F;
+	padding: 5px;
+}
+#body_right div.msg_block div{
+	width: 100%;
+	color: #FFF;
+}
+#body_right div.msg_block div.msg_timestamp{
+	text-align: right;
 }

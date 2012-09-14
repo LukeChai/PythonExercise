@@ -3,29 +3,116 @@ $def with (session)
 	<div id="header_right">
     	$if not session.loggedin:
             <form action="/login" id="login_form" method="post">
-                <input id="username" name="username" type="text" maxlength="20" value="" />
+                <input id="username" name="username" type="text" maxlength="20" value="用戶名" />
                 <input id="password" name="password" type="password" maxlength="8" value="" />
-                <input id="submit" type="submit" value="登录" />
-                <input id="signin" type="button" value="注册" />
+                <input id="submit" type="submit" value="登錄" />
+                <input id="signin" type="button" value="註冊" />
             </form>
-            <div id="password_mask" class="color_gray">密码</div>
+            <div id="password_mask" class="color_gray">密碼</div>
         $else:
            	<div id="logout">
             	<span>$session.username</span>
                 <span>|</span>
-                <a href="/logout">注销</a>
+                <a href="/logout">註銷</a>
             </div>
+            $if session.admin:
+            	<div id="privilege" class="hide"></div>	
     </div>
     <div id="header_msg" class="hide">
     </div>
 </div>
 <div id="body">
+$if session.loggedin:
 	<div id="body_left">
     	<div id="body_left_header">
+        $if session.admin:
+        	<div id="search_inns_area">
+                <table>
+                    <tbody>
+                    	<tr>
+                        	<th colspan="2">檢索旅店</th>
+                        </tr>
+                        <tr>
+                            <td class="search_ainn_name" nowrap="nowrap">
+                                <input type="text" name="search_innname" id="search_inn_name" value="請輸入旅店名稱" />
+                            </td>
+                            <td class="search_ainn_location" nowrap="nowrap">
+                                <input type="text" name="search_innlocation" id="search_inn_location" value="地址" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>            	
+            </div>
+            <div id="search_inn_action">
+            	<button type="button" id="search_inn_filter">開始篩選</button>
+                <button type="button" id="search_inn_showAll">顯示全部</button>
+            </div>
+        $else:
+        	<div id="new_ainn_button">
+            	新的旅店
+            </div>
+            <div id="new_ainn_body" class="hide">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="new_ainn_name" nowrap="nowrap">
+                                <input type="text" name="new_inn_name" id="new_inn_name" value="請輸入旅店名稱" />
+                            </td>
+                            <td class="new_ainn_location" nowrap="nowrap">
+                                <input type="text" name="new_inn_location" id="new_inn_location" value="地址" />
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div id="new_ainn_action">
+            	<button type="button" id="new_ainn_continue">继续添加</button>
+                <button type="button" id="new_ainn_done">完成</button>
+            </div>
         </div>
 	</div>
 	<div id="body_right">
 	</div>
+$else:
+	<div id="body_register" class="hide">
+        <table>
+            <tbody>
+                <tr>
+                    <td nowrap="nowrap">
+                        <input type="text" name="reg_username" id="reg_username" value="用戶名" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="reg_password" id="reg_password" value="密碼" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="reg_mobile" id="reg_mobile" value="移動電話" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="reg_email" id="reg_email" value="電子郵箱" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="reg_location" id="reg_location" value="聯繫地址" />
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+            	 <tr>
+                    <td>
+                        <button type="button" id="reg_approve">提交</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+        <div class="hide"></div>
+    </div>
 </div>
 <div id="footer">
 </div>

@@ -30,7 +30,7 @@ CREATE TABLE `inn` (
   `orderno` int(11) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -39,8 +39,37 @@ CREATE TABLE `inn` (
 
 LOCK TABLES `inn` WRITE;
 /*!40000 ALTER TABLE `inn` DISABLE KEYS */;
-INSERT INTO `inn` VALUES (1,1,'31how',NULL,1);
+INSERT INTO `inn` VALUES (1,2,'31how','思明区 中山公园西门 附近',1),(20,2,'32jii','思明区 湖滨南路 100号',4),(21,5,'31cafe','嘉禾路 31号',0);
 /*!40000 ALTER TABLE `inn` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `msg`
+--
+
+DROP TABLE IF EXISTS `msg`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `msg` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `fuserid` int(11) DEFAULT NULL,
+  `tuserid` int(11) DEFAULT NULL,
+  `message` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `isread` int(11) DEFAULT NULL,
+  `timestamp` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `id_UNIQUE` (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `msg`
+--
+
+LOCK TABLES `msg` WRITE;
+/*!40000 ALTER TABLE `msg` DISABLE KEYS */;
+INSERT INTO `msg` VALUES (2,2,1,'luke剛登錄了!',1,'2012-09-14 16:39:17'),(3,2,1,'luke剛登錄了!',1,'2012-09-14 17:58:31'),(4,2,1,'luke剛登錄了!',1,'2012-09-14 18:04:17'),(5,2,1,'luke剛登錄了!',1,'2012-09-14 18:05:23'),(6,2,1,'luke剛註銷了!',1,'2012-09-14 18:05:26');
+/*!40000 ALTER TABLE `msg` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -59,7 +88,7 @@ CREATE TABLE `room` (
   `updatedtime` varchar(20) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=22 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -68,7 +97,7 @@ CREATE TABLE `room` (
 
 LOCK TABLES `room` WRITE;
 /*!40000 ALTER TABLE `room` DISABLE KEYS */;
-INSERT INTO `room` VALUES (2,1,'花园房',5,2,'2012-08-17 13:29:11'),(3,1,'大床房',13,1,'2012-08-17 17:37:56');
+INSERT INTO `room` VALUES (2,1,'花园房',5,3,'2012-08-29 11:00:23'),(3,1,'大床房',11,0,'2012-08-29 15:47:34'),(7,1,'测试用',1,1,'2012-08-29 17:18:34'),(18,1,'双人标准',14,2,'2012-08-29 11:00:23'),(21,21,'Mixed room 6',4,0,'2012-09-05 12:23:34');
 /*!40000 ALTER TABLE `room` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -89,7 +118,7 @@ CREATE TABLE `user` (
   `mark` varchar(200) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -98,7 +127,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
-INSERT INTO `user` VALUES (1,'luke','123456',NULL,NULL,NULL,NULL);
+INSERT INTO `user` VALUES (1,'admin','123456',NULL,NULL,NULL,NULL),(2,'luke','123456',NULL,NULL,NULL,NULL),(5,'simba','123123','1123','','',NULL);
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -111,4 +140,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2012-08-22 17:28:17
+-- Dump completed on 2012-09-14 18:29:29
